@@ -1,0 +1,17 @@
+packages:
+  all:
+    variants:
+      - ~cuda ~rocm
+  arborx:
+    require:
+      - ~cuda ~rocm
+  cabana:
+    require:
+      - ~cuda ~rocm
+  covfie:
+    require:
+      - ~cuda ~rocm
+  vecgeom:
+    require:
+      - ~cuda
+
