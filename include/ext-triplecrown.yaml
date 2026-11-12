@@ -2,5 +2,9 @@ config:
   concurrent_packages: 8
   build_jobs: 64
 
+packages:
+  opengl:
+    buildable: false
+
 include:
   - ext-ubunutu24.yaml

@@ -12,7 +12,7 @@ spack:
 
   view:
     default:
-      root: /scratch/celeritas/view-fnal
+      root: /scratch/celeritas/view-dunesw
 
   definitions:
     - build_specs:
@@ -66,25 +66,25 @@ spack:
         - lardata
         - lardataalg
         - lardataobj
-        #- lareventdisplay
+          #- lareventdisplay
         - larevt
         - larexamples
         - larg4
-        #- larrecodnn
+          #- larrecodnn
         - larsim
     - dune_specs:
-        #- duneana
-        #- duneanaobj
-        #- dunecalib
+        # - duneana
+        - duneanaobj
+          # - dunecalib
         - dunecore
           #- dunedataprep
           #- duneexamples
-          #- duneopdet
-          # - dunepdlegacy
+        - duneopdet
+          #- dunepdlegacy
           # - duneprototypes
-          # - dunereco
+          # #- dunereco
           # - dunesim
-          # - protoduneana
+          # #- protoduneana
 
   specs:
     #- $build_specs
@@ -94,3 +94,36 @@ spack:
     #- $nu_specs
     #- $lar_specs
     - $dune_specs
+
+  packages:
+    all:
+      variants:
+        - ~tensorflow
+    artdaq-core:
+      require:
+        # Do NOT "use the art-suite bundle to fix dependency versions"
+        - "~bundle"
+    boost:
+      variants::
+        # Primarily art, canvas, fhicl-cpp, artdaq-db
+        - >
+          +date_time +graph +program_options +regex
+          +filesystem +system +test
+          +chrono +math +thread
+          +atomic +exception +json +random +serialization
+    larpandoracontent:
+      require:
+        # Disable ROOT x11 usage
+        - ~monitoring
+        # Disable PyTorch
+        - ~torch
+    larpandora:
+      require:
+        # Do not pull in pytorch
+        - ~torch
+    python:
+      require:
+        - "@3.14"
+    root:
+      require:
+        - ~x ~opengl

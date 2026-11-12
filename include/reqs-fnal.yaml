@@ -2,8 +2,10 @@ config:
   deprecated: true
 repos:
   fnal_art:
-    git: https://github.com/FNALssi/fnal_art.git
-    commit: 3ac162026e0343732a2539ef74eead3b89e3b7f0 # branch develop, as built 2026-10-02
+    #git: https://github.com/FNALssi/fnal_art.git
+    #commit: 3ac162026e0343732a2539ef74eead3b89e3b7f0 # branch develop, as built 2026-10-02
+    git: https://github.com/sethrj/fnal_art.git
+    commit: fa9235930064c70c03c1c6dc880766fcfa913f31 # branch celeritas 12 nov 2026
     paths: [spack_repo/fnal_art]
     destination: $spack/var/spack/repos/fnal_art
   nusofthep:
@@ -13,8 +15,10 @@ repos:
     paths: [spack_repo/nusofthep]
     destination: $spack/var/spack/repos/nusofthep
   larsoft:
-    git: https://github.com/LArSoft/larsoft-spack-recipes.git
-    commit: e18b1521c424c533a12dfcbc63c70b7189902561 # branch main, as built 2026-10-02
+    #git: https://github.com/LArSoft/larsoft-spack-recipes.git
+    #commit: e18b1521c424c533a12dfcbc63c70b7189902561 # branch main, as built 2026-10-02
+    git: https://github.com/sethrj/larsoft-spack-recipes.git
+    commit: 22420a612b2e1f4416a009e94a5ea4bae5acfb2f # branch celeritas 12 nov 2026
     paths: [spack_repo/larsoft]
     destination: $spack/var/spack/repos/larsoft
   wirecell:
@@ -27,4 +31,7 @@ repos:
     commit: a561dcf06805e51563f6f37b6d0d49e1501ce39b # branch spack-v1.0, 11.11
     paths: [spack_repo/dune_spack]
     destination: $spack/var/spack/repos/dune-spack
-
+  artdaq_spack:
+    git: https://github.com/art-daq/artdaq-spack.git
+    destination: $spack/var/spack/repos/artdaq-spack
+    branch: artdaq/Spack1.1

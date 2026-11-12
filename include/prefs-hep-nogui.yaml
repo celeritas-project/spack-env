@@ -8,6 +8,7 @@
 # by other 'prefer' and 'require'.
 #-----------------------------------------------------------------------------#
 packages:
+  # BUILTINS
   boost:
     variants:
       # Requirements from Allpix^2
@@ -35,3 +36,10 @@ packages:
         ~davix ~examples ~tbb
         +root7
         +geom +math
+  # LARSOFT
+  larsoft:
+    variants:
+      - ~eventdisplay ~tensorflow
+  larpandoracontent:
+    variants:
+      - ~monitoring
