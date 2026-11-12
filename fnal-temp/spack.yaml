@@ -1,0 +1,18 @@
+# Based on https://github.com/brettviren/phaindia
+spack:
+  include:
+    - include/reqs-celer.yaml
+    - include/reqs-excl.yaml
+    - include/reqs-fnal.yaml
+    - include/reqs-cuda.yaml
+    - include/reqs-scratch.yaml
+    - include/prefs-hep-nogui.yaml
+    - include/prefs-excl.yaml
+    - include/ext-triplecrown.yaml
+  
+  view:
+    default:
+      root: /scratch/celeritas/view-fnal-temp
+
+  specs:
+    - nucondb

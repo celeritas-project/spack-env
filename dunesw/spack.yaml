@@ -1,0 +1,96 @@
+# Based on https://github.com/brettviren/phaindia
+spack:
+  include:
+    - include/reqs-celer.yaml
+    - include/reqs-excl.yaml
+    - include/reqs-scratch.yaml
+    - include/reqs-fnal.yaml
+    - include/reqs-cuda.yaml
+    - include/prefs-hep-nogui.yaml
+    - include/prefs-excl.yaml
+    - include/ext-triplecrown.yaml
+
+  view:
+    default:
+      root: /scratch/celeritas/view-fnal
+
+  definitions:
+    - build_specs:
+        - ccache
+        - py-pre-commit
+        - cmake
+        - ninja
+        - git-lfs
+        - git
+        - python
+    - celer_specs:
+        - cli11
+        - nlohmann-json
+        - geant4
+        - googletest
+        - covfie
+        - g4vg
+        - hepmc3
+        - root
+        - cuda
+    - util_specs:
+        - gh
+        - libtree
+        - jq
+    - art_specs:
+        - art
+        - art-root-io
+        - canvas
+        - canvas-root-io
+        - cetlib
+        - cetlib-except
+        - cetmodules
+        - critic
+        - fhicl-cpp
+        - gallery
+        - hep-concurrency
+        - messagefacility
+    - nu_specs:
+        - dk2nudata
+        - dk2nugenie
+        - geant4
+        - nug4
+        - nurandom
+        - nusimdata
+        - nuevdb
+    - lar_specs:
+        - larana
+        - larcore
+        - larcorealg
+        - larcoreobj
+        - lardata
+        - lardataalg
+        - lardataobj
+        #- lareventdisplay
+        - larevt
+        - larexamples
+        - larg4
+        #- larrecodnn
+        - larsim
+    - dune_specs:
+        #- duneana
+        #- duneanaobj
+        #- dunecalib
+        - dunecore
+          #- dunedataprep
+          #- duneexamples
+          #- duneopdet
+          # - dunepdlegacy
+          # - duneprototypes
+          # - dunereco
+          # - dunesim
+          # - protoduneana
+
+  specs:
+    #- $build_specs
+    #- $celer_specs
+    #- $util_specs
+    #- $art_specs
+    #- $nu_specs
+    #- $lar_specs
+    - $dune_specs
