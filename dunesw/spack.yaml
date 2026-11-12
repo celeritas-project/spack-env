@@ -73,26 +73,26 @@ spack:
           #- larrecodnn
         - larsim
     - dune_specs:
-        # - duneana
-        - duneanaobj
-          # - dunecalib
+        #- duneana
+        #- duneanaobj
+        #- dunecalib
         - dunecore
-          #- dunedataprep
-          #- duneexamples
+        #- dunedataprep
+        #- duneexamples
         - duneopdet
-          #- dunepdlegacy
-          # - duneprototypes
-          # #- dunereco
-          # - dunesim
-          # #- protoduneana
+        #- dunepdlegacy
+        #- duneprototypes
+        #- dunereco
+        - dunesim
+        #- protoduneana
 
   specs:
-    #- $build_specs
-    #- $celer_specs
-    #- $util_specs
-    #- $art_specs
+    - $build_specs
+    - $celer_specs
+    - $util_specs
+    - $art_specs
     #- $nu_specs
-    #- $lar_specs
+    - $lar_specs
     - $dune_specs
 
   packages:
@@ -106,7 +106,7 @@ spack:
     boost:
       variants::
         # Primarily art, canvas, fhicl-cpp, artdaq-db
-        - >
+        - >-
           +date_time +graph +program_options +regex
           +filesystem +system +test
           +chrono +math +thread
