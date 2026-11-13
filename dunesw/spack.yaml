@@ -13,6 +13,7 @@ spack:
   view:
     default:
       root: /scratch/celeritas/view-dunesw
+      exclude: ["^gmake@4.3", "sqlite/mlmva73", "^gcc-runtime/tkhgtsr"] # Stale toolchain
 
   definitions:
     - build_specs:
@@ -78,7 +79,7 @@ spack:
         #- dunecalib
         - dunecore
         #- dunedataprep
-        #- duneexamples
+        - duneexamples
         - duneopdet
         #- dunepdlegacy
         #- duneprototypes
