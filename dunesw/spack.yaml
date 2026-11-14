@@ -4,7 +4,8 @@ spack:
     - include/reqs-celer.yaml
     - include/reqs-excl.yaml
     - include/reqs-scratch.yaml
-    - include/reqs-fnal.yaml
+    #- include/reqs-fnal.yaml
+    - include/reqs-fnal-ci.yaml
     - include/reqs-cuda.yaml
     - include/prefs-hep-nogui.yaml
     - include/prefs-excl.yaml
@@ -79,13 +80,14 @@ spack:
         #- dunecalib
         - dunecore
         #- dunedataprep
-        - duneexamples
+        #- duneexamples
         - duneopdet
         #- dunepdlegacy
         #- duneprototypes
         #- dunereco
         - dunesim
         #- protoduneana
+        #- dunesw
 
   specs:
     - $build_specs
