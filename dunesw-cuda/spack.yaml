@@ -102,6 +102,11 @@ spack:
     # root:
     #   require:
     #     - ~x ~opengl
+    xrootd:
+      require:
+        - generator=make # weird python jobserver bug
+    zlib:
+      buildable: False
     zlib-ng:
       require:
         - +compat+new_strategies

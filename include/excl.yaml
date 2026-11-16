@@ -84,3 +84,10 @@ packages:
 
   py-torch:
     buildable: false
+
+  doxygen:
+    require:
+      - generator=make # weird python jobserver bug
+  xrootd:
+    require:
+      - generator=make # weird python jobserver bug
