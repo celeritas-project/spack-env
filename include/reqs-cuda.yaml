@@ -14,4 +14,3 @@ packages:
   vecgeom:
     require:
       - +cuda cuda_arch=80,90
-

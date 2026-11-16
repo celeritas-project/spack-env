@@ -9,7 +9,7 @@ spack:
     - include/prefs-hep-nogui.yaml
     - include/prefs-excl.yaml
     - include/ext-triplecrown.yaml
-  
+
   view:: {}
 
   specs:

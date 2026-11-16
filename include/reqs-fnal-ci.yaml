@@ -36,7 +36,7 @@ repos:
     commit: 956c699140b6fae58ba01ec02b17d1cc3a146c95 # upstream/artdaq/Spack1.1, 2026-10-16
   builtin:
     commit: 40e476f10a712de643817d1cb2ba7ffaefd3231d # pandora updates
- 
+
 packages:
   # From dunesw-10_31_00d00-justin-01_06_05-prototype
   all: # spack.yaml:68

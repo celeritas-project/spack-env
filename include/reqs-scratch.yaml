@@ -5,4 +5,3 @@ view:
 config:
   install_tree:
     root: /scratch/celeritas/opt
-
