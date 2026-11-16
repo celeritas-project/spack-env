@@ -33,6 +33,16 @@ packages:
       - ~cxx # override cxxstd preference
   # Compilers
   c:
-    require: "gcc@13.3.0"
+    require:
+      - "gcc@13.3.0"
   cxx:
-    require: "gcc@13.3.0"
+    require:
+      - "gcc@13.3.0"
+  fortran:
+    require:
+      - "gcc@13.3.0"
+  # CUDA compatible with V100 and newer
+  cuda:
+    require:
+      - "@12.9"
+
