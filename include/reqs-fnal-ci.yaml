@@ -27,7 +27,7 @@ repos:
     destination: /auto/projects/celeritas/spack-repos/wirecell
   dune_spack:
     git: https://github.com/DUNE/dune_spack.git
-    commit: a561dcf06805e51563f6f37b6d0d49e1501ce39b # upstream/spack-v1.0, 2026-11-10
+    commit: b4090c1abb2ba8c2403a42e47bd490696d3e3265 # upstream/spack-v1.0, 2026-11-10
     paths: [spack_repo/dune_spack]
     destination: /auto/projects/celeritas/spack-repos/dune-spack
   artdaq_spack:
@@ -39,10 +39,10 @@ repos:
 
 packages:
   # From dunesw-10_31_00d00-justin-01_06_05-prototype
-  all: # spack.yaml:68
-    variants: # spack.yaml:74
-      - generator=ninja # spack.yaml:75
-      - build_type=Release # spack.yaml:76
+  # all: # spack.yaml:68
+  #   variants: # spack.yaml:74
+  #     - generator=ninja # spack.yaml:75
+  #     - build_type=Release # spack.yaml:76
   duneana: # dune-release-configs:4
     require: # dune-release-configs:5
       - "@10.31.00d00" # dune-release-configs:6
@@ -132,7 +132,8 @@ packages:
       #- +xrootd # dune-release-configs:90
       - "@6.28.12" # art-release-configs:60
   snakemake: # dune-release-configs:91
-    require: "@7:" # dune-release-configs:93
+    require:
+      - "@7:" # dune-release-configs:93
   systematicstools: # dune-release-configs:94
     require: # dune-release-configs:95
       - "@01.04.04" # dune-release-configs:96

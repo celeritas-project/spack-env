@@ -71,9 +71,6 @@ spack:
     - $specs_dune
 
   packages:
-    all:
-      variants:
-        - ~tensorflow
     artdaq-core:
       require:
         # Do NOT "use the art-suite bundle to fix dependency versions"
@@ -86,12 +83,18 @@ spack:
           +filesystem +system +test
           +chrono +math +thread
           +atomic +exception +json +random +serialization
+    duneopdet:
+      require:
+        - ~tensorflow
     larpandoracontent:
       require:
         # Disable ROOT x11 usage
         - ~monitoring
         # Disable PyTorch
         - ~torch
+    larsimdnn:
+      require:
+        - ~tensorflow
     larpandora:
       require:
         # Do not pull in pytorch
@@ -99,3 +102,6 @@ spack:
     # root:
     #   require:
     #     - ~x ~opengl
+    zlib-ng:
+      require:
+        - +compat+new_strategies
