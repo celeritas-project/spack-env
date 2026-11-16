@@ -1,8 +1,0 @@
-packages:
-  python:
-    version:
-      - "3.14" # spack installation July 2026
-  all:
-    variants:
-      - ~mpi
-      - generator=ninja

@@ -1,0 +1,79 @@
+config:
+  locks: false
+  concurrent_packages: 16
+  build_jobs: 64
+  source_cache: /auto/projects/celeritas/spack-cache/source
+  install_tree:
+    padded_length: 128
+    projections:
+      all: "{name}/{version}/{hash:7}"
+
+mirrors:
+  projects:
+    url: /auto/projects/celeritas/spack-cache/build
+    binary: true
+    signed: false
+    autopush: false
+
+concretizer:
+  unify: true
+  targets:
+    granularity: generic
+    host_compatible: true
+  duplicates:
+    max_dupes::
+      default: 1
+  compiler_mixing: false
+
+definitions:
+  - specs_excl_util:
+      - git-lfs
+      - gh
+      - libtree
+      - jq
+
+packages:
+  all:
+    # NOTE: each of these is overridden by ANY corresponding package-level key
+    # so we duplicate require/prefer/target
+    target: [x86_64_v3]
+    require:
+      - cxxstd=20
+      - target=x86_64_v3
+      - ~mpi
+    prefer:
+      - cxxstd=20
+      - target=x86_64_v3
+    variants:
+      # Do NOT "prefer" ninja since ninja's dependencies may break
+      - generator=ninja
+      - cxxstd=20
+    providers:
+      zlib-api: ["zlib-ng+compat"]
+
+  # Compilers
+  c:
+    require:
+      - "gcc@13.3.0"
+  cxx:
+    require:
+      - "gcc@13.3.0"
+  fortran:
+    require:
+      - "gcc@13.3.0"
+
+  # CUDA compatible with V100 and newer
+  cuda:
+    require:
+      - "@12.9"
+
+  hdf5:
+    prefer:
+      - ~cxx # override cxxstd preference
+
+  python:
+    version:
+      - "3.14" # spack installation July 2026
+
+  py-torch:
+    buildable: false

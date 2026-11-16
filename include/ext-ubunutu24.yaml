@@ -1,12 +1,3 @@
-toolchains:
-  llvm_gfortran:
-    - spec: "%c=llvm@18"
-      when: "%c"
-    - spec: "%cxx=llvm@18"
-      when: "%cxx"
-    - spec: "%fortran=gcc@13"
-      when: "%fortran"
-
 packages:
   bash:
     buildable: false

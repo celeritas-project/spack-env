@@ -83,19 +83,3 @@ packages:
       - spec: amdsmi@7.14.0
         prefix: /opt/rocm/core-7.14
     buildable: false
-
-  # ubuntu24.04
-  bash:
-    externals:
-      - spec: bash@5.2.21
-        prefix: /usr
-  gcc:
-    buildable: false
-    externals:
-      - spec: gcc@13.3.0 languages:='c,c++,fortran'
-        prefix: /usr
-        extra_attributes:
-          compilers:
-            c: /usr/bin/gcc-13
-            cxx: /usr/bin/g++-13
-            fortran: /usr/bin/gfortran-13

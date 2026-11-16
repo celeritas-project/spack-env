@@ -1,42 +1,17 @@
 # Based on https://github.com/brettviren/phaindia
 spack:
   include:
-    - include/reqs-celer.yaml
-    - include/reqs-excl.yaml
-    - include/reqs-scratch.yaml
-    - include/reqs-fnal-ci.yaml
+    - include/excl.yaml
     - include/reqs-cuda.yaml
+    - include/reqs-scratch.yaml
+    - include/reqs-celer.yaml
+    - include/reqs-fnal-ci.yaml
     - include/prefs-hep-nogui.yaml
-    - include/prefs-excl.yaml
-    - include/ext-triplecrown.yaml
+    - include/ext-ubunutu24.yaml
 
-  view:
-    default:
-      root: /scratch/celeritas/view-dunesw
+  view: false
 
   definitions:
-    - specs_build:
-        - ccache
-        - py-pre-commit
-        - cmake
-        - ninja
-        - git-lfs
-        - git
-        - python
-    - specs_celer:
-        - cli11
-        - nlohmann-json
-        - geant4
-        - googletest
-        - covfie
-        - g4vg
-        - hepmc3
-        - root
-        - cuda
-    - specs_util:
-        - gh
-        - libtree
-        - jq
     - specs_art:
         - art
         - art-root-io
@@ -88,9 +63,8 @@ spack:
         #- dunesw
 
   specs:
-    - $specs_build
-    - $specs_celer
-    - $specs_util
+    - $specs_celer_dev
+    - $specs_celer_lib
     - $specs_art
     #- $specs_nu
     - $specs_lar
@@ -122,6 +96,6 @@ spack:
       require:
         # Do not pull in pytorch
         - ~torch
-    root:
-      require:
-        - ~x ~opengl
+    # root:
+    #   require:
+    #     - ~x ~opengl

@@ -1,12 +1,13 @@
 spack:
   include: # Earlier is higher precedence
-    - include/ext-triplecrown.yaml
+    - include/excl.yaml
     - include/reqs-cuda.yaml
     - include/reqs-scratch.yaml
-    - include/reqs-excl.yaml
     - include/reqs-celer.yaml
-    - include/prefs-excl.yaml
     - include/prefs-hep-nogui.yaml
+    - include/ext-ubunutu24.yaml
+
+  view: false
 
   specs:
     - $specs_celer_dev
