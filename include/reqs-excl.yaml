@@ -45,3 +45,11 @@ packages:
   cuda:
     require:
       - "@12.9"
+
+  # TEMPORARILY PINNED VERSIONS
+  python:
+    require:
+      - "@=3.14.5"
+  expat:
+    require:
+      - "@=2.8.4"

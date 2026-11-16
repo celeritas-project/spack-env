@@ -112,9 +112,6 @@ spack:
           +filesystem +system +test
           +chrono +math +thread
           +atomic +exception +json +random +serialization
-    cuda:
-      require:
-        - "@12.9" # V100 and newer
     larpandoracontent:
       require:
         # Disable ROOT x11 usage
@@ -125,9 +122,6 @@ spack:
       require:
         # Do not pull in pytorch
         - ~torch
-    python:
-      require:
-        - "@3.14"
     root:
       require:
         - ~x ~opengl
