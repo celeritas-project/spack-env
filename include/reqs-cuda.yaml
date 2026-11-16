@@ -4,13 +4,13 @@ packages:
       - ~rocm
   arborx:
     require:
-      - +cuda cuda_arch=80,90
+      - +cuda cuda_arch=70,80,90
   cabana:
     require:
-      - +cuda cuda_arch=80,90
+      - +cuda cuda_arch=70,80,90
   covfie:
     require:
-      - +cuda cuda_arch=80,90
+      - +cuda cuda_arch=70,80,90
   vecgeom:
     require:
-      - +cuda cuda_arch=80,90
+      - +cuda cuda_arch=70,80,90

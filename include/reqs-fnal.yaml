@@ -1,5 +1,6 @@
 config:
   deprecated: true
+
 repos:
   fnal_art:
     #git: https://github.com/FNALssi/fnal_art.git

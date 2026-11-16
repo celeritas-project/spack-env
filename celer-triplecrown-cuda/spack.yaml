@@ -1,18 +1,15 @@
 spack:
-  include:
-    - include/reqs-celer.yaml
-    #- include/reqs-allpix.yaml
-    - include/reqs-excl.yaml
-    - include/reqs-scratch.yaml
-    - include/reqs-cuda.yaml
-    - include/prefs-hep-nogui.yaml
-    - include/prefs-excl.yaml
+  include: # Earlier is higher precedence
     - include/ext-triplecrown.yaml
-    - include/defs-allpix.yaml
-    - include/defs-celer.yaml
+    - include/reqs-cuda.yaml
+    - include/reqs-scratch.yaml
+    - include/reqs-excl.yaml
+    - include/reqs-celer.yaml
+    - include/prefs-excl.yaml
+    - include/prefs-hep-nogui.yaml
 
   specs:
-    - $build_specs
-    - $celer_specs
-      # - $allpix_specs
-    - $util_specs
+    - $specs_celer_dev
+    - $specs_celer_lib
+    - $specs_excl_util
+    - cuda

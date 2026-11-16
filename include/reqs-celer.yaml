@@ -31,3 +31,22 @@ packages:
       - +gdml
     version:
       - "2"
+
+definitions:
+  - specs_celer_dev:
+      - ccache
+      - py-pre-commit
+      - cmake
+      - ninja
+      - git
+      - python
+  - specs_celer_lib:
+      - cli11
+      - nlohmann-json
+      - geant4
+      - googletest
+      - covfie
+      - g4vg
+      - hepmc3
+      - vecgeom
+      - root

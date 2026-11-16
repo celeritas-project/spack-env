@@ -15,7 +15,7 @@ spack:
       root: /scratch/celeritas/view-fnal
 
   definitions:
-    - build_specs:
+    - specs_build:
         - ccache
         - py-pre-commit
         - cmake
@@ -23,7 +23,7 @@ spack:
         - git-lfs
         - git
         - python
-    - celer_specs:
+    - specs_celer:
         - cli11
         - nlohmann-json
         - geant4
@@ -32,11 +32,11 @@ spack:
         - hepmc3
         - root
         - cuda
-    - util_specs:
+    - specs_util:
         - gh
         - libtree
         - jq
-    - art_specs:
+    - specs_art:
         - art
         - art-root-io
         - canvas
@@ -49,7 +49,7 @@ spack:
         - gallery
         - hep-concurrency
         - messagefacility
-    - nu_specs:
+    - specs_nu:
         - dk2nudata
         - dk2nugenie
         - geant4
@@ -57,7 +57,7 @@ spack:
         - nurandom
         - nusimdata
         - nuevdb
-    - lar_specs:
+    - specs_lar:
         - larana
         - larcore
         - larcorealg
@@ -73,6 +73,6 @@ spack:
         - larsim
 
   specs:
-    - $build_specs
-    - $celer_specs
+    - $specs_build
+    - $specs_celer
     - larsim

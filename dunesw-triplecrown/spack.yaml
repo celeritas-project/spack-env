@@ -15,7 +15,7 @@ spack:
       root: /scratch/celeritas/view-dunesw
 
   definitions:
-    - build_specs:
+    - specs_build:
         - ccache
         - py-pre-commit
         - cmake
@@ -23,7 +23,7 @@ spack:
         - git-lfs
         - git
         - python
-    - celer_specs:
+    - specs_celer:
         - cli11
         - nlohmann-json
         - geant4
@@ -33,11 +33,11 @@ spack:
         - hepmc3
         - root
         - cuda
-    - util_specs:
+    - specs_util:
         - gh
         - libtree
         - jq
-    - art_specs:
+    - specs_art:
         - art
         - art-root-io
         - canvas
@@ -50,7 +50,7 @@ spack:
         - gallery
         - hep-concurrency
         - messagefacility
-    - nu_specs:
+    - specs_nu:
         - dk2nudata
         - dk2nugenie
         - geant4
@@ -58,7 +58,7 @@ spack:
         - nurandom
         - nusimdata
         - nuevdb
-    - lar_specs:
+    - specs_lar:
         - larana
         - larcore
         - larcorealg
@@ -72,7 +72,7 @@ spack:
         - larg4
           #- larrecodnn
         - larsim
-    - dune_specs:
+    - specs_dune:
         #- duneana
         #- duneanaobj
         #- dunecalib
@@ -88,13 +88,13 @@ spack:
         #- dunesw
 
   specs:
-    - $build_specs
-    - $celer_specs
-    - $util_specs
-    - $art_specs
-    #- $nu_specs
-    - $lar_specs
-    - $dune_specs
+    - $specs_build
+    - $specs_celer
+    - $specs_util
+    - $specs_art
+    #- $specs_nu
+    - $specs_lar
+    - $specs_dune
 
   packages:
     all:
