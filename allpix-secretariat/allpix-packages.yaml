@@ -1,0 +1,11 @@
+packages:
+  all:
+    prefer:
+      - "cxxstd=20"
+  boost:
+    require: "+random"
+  hepmc3:
+    require: "+rootio"
+  root:
+    require:
+      - "+geom +math"
