@@ -1,5 +1,5 @@
 config:
-  concurrent_packages: 8
+  concurrent_packages: 16
   build_jobs: 64
 
 packages:
