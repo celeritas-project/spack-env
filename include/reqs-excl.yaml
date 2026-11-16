@@ -8,7 +8,11 @@ config:
     projections:
       all: "{name}/{version}/{hash:7}"
 
-mirrors:
+mirrors::
+  spack-public:
+    binary: False
+    url: https://mirror.spack.io
+    
   projects:
     url: /auto/projects/celeritas/spack-cache/build
     binary: true
@@ -21,6 +25,41 @@ concretizer:
     granularity: generic
     host_compatible: true
 
+definitions:
+  - specs_dev:
+      - ccache
+      - py-pre-commit
+      - cmake
+      - ninja
+      - git
+      - python
+  - specs_excl_util:
+      - git-lfs
+      - gh
+      - libtree
+      - jq
+  - specs_celer:
+      - cli11
+      - nlohmann-json
+      - geant4
+      - googletest
+      - covfie
+      - g4vg
+      - hepmc3
+      - vecgeom
+      - root
+  - specs_allpix:
+      - boost
+      - root
+      - eigen
+      - pkgconfig
+      - geant4
+      - hepmc3
+      - py-numpy
+      - hdf5
+      - py-h5py
+      - cabana
+      
 packages:
   all:
     target: [x86_64_v3]
@@ -45,11 +84,3 @@ packages:
   cuda:
     require:
       - "@12.9"
-
-  # TEMPORARILY PINNED VERSIONS
-  python:
-    require:
-      - "@=3.14.5"
-  expat:
-    require:
-      - "@=2.8.4"
