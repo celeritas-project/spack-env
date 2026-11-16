@@ -32,6 +32,13 @@ definitions:
       - libtree
       - jq
 
+  - specs_excl_ana:
+      - py-uproot
+      - py-numpy
+      - py-pandas +performance
+      - py-matplotlib
+      - py-ipykernel
+
 packages:
   all:
     # NOTE: each of these is overridden by ANY corresponding package-level key
