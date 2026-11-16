@@ -5,8 +5,7 @@ config:
 repos:
   fnal_art:
     git: https://github.com/FNALssi/fnal_art.git
-    # commit: 1a9dd5eafed17734d94ee7d03c325dd94cc0e20d # upstream/develop, 2026-11-13
-    commit: 3673b21b634b9b17fef8d0e29bbf0d92738b7eb6
+    commit: 4af228d77d493896d0a791ab3519e61ff840c43c # upstream/develop, 2026-11-16
     paths: [spack_repo/fnal_art]
     destination: /auto/projects/celeritas/spack-repos/fnal_art
   nusofthep:
@@ -140,6 +139,7 @@ packages:
   xrootd: # dune-release-configs:97
     require: # dune-release-configs:98
       - +python # dune-release-configs:99
+      - +client_only # otherwise cxxstd is ignored
   larana: # larsoft-release-configs:2
     require: # larsoft-release-configs:3
       - "@10.05.00" # larsoft-release-configs:4
