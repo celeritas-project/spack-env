@@ -10,9 +10,7 @@ spack:
     - include/prefs-excl.yaml
     - include/ext-triplecrown.yaml
   
-  view:
-    default:
-      root: /scratch/celeritas/view-fnal-temp
+  view:: {}
 
   specs:
     - nucondb
