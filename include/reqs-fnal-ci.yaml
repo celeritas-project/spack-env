@@ -4,35 +4,35 @@ config:
 # NOTE: use `spack repo update` to check out these versions
 repos:
   fnal_art:
-    git: https://github.com/FNALssi/fnal_art.git
-    commit: 4af228d77d493896d0a791ab3519e61ff840c43c # upstream/develop, 2026-11-16
+    git: https://github.com/sethrj-bot/fnal_art.git
+    commit: 823474cfcc83784ce936437a9db0eecaedb702e7 # sethrj-bot celeritas-gcc13
     paths: [spack_repo/fnal_art]
     destination: /auto/projects/celeritas/spack-repos/fnal_art
   nusofthep:
-    git: https://github.com/NuSoftHEP/nusofthep-spack-recipes.git
-    commit: ecbe95395ed1f0a2bfe889d60aa5cd4fd2ddeee0 # upstream/spack-v1.0, 2026-11-03
+    git: https://github.com/sethrj-bot/nusofthep-spack-recipes.git
+    commit: ecbe95395ed1f0a2bfe889d60aa5cd4fd2ddeee0 # sethrj-bot celeritas-gcc13
     paths: [spack_repo/nusofthep]
     destination: /auto/projects/celeritas/spack-repos/nusofthep
   larsoft:
-    git: https://github.com/LArSoft/larsoft-spack-recipes.git
+    git: https://github.com/sethrj-bot/larsoft-spack-recipes.git
     # commit: a4f00473ab28f1389cf0269e972fc219c74098e8 # upstream/main, 2026-11-13
-    commit: 715e5eb2b9f0d653439281c009c1a3678c2b60b7
+    commit: e0eba69c4ce84d4089df95f00e2275eb38f2b0d9 # sethrj-bot celeritas-gcc13
     paths: [spack_repo/larsoft]
     destination: /auto/projects/celeritas/spack-repos/larsoft
   wirecell:
-    git: https://github.com/WireCell/wire-cell-spack.git
-    commit: a300e0cb08af4ac72500a7f17ef5aee25503e9d6 # upstream/master, 2026-10-14
+    git: https://github.com/sethrj-bot/wire-cell-spack.git
+    commit: a300e0cb08af4ac72500a7f17ef5aee25503e9d6 # sethrj-bot celeritas-gcc13
     paths: [spack_repo/wirecell]
     destination: /auto/projects/celeritas/spack-repos/wirecell
   dune_spack:
-    git: https://github.com/DUNE/dune_spack.git
-    commit: b4090c1abb2ba8c2403a42e47bd490696d3e3265 # upstream/spack-v1.0, 2026-11-10
+    git: https://github.com/sethrj-bot/dune_spack.git
+    commit: c5c5be956eaafb2a900d7c6bc69cbf856bf51704 # sethrj-bot celeritas-gcc13
     paths: [spack_repo/dune_spack]
     destination: /auto/projects/celeritas/spack-repos/dune-spack
   artdaq_spack:
-    git: https://github.com/art-daq/artdaq-spack.git
+    git: https://github.com/sethrj-bot/artdaq-spack.git
     destination: /auto/projects/celeritas/spack-repos/artdaq-spack
-    commit: 956c699140b6fae58ba01ec02b17d1cc3a146c95 # upstream/artdaq/Spack1.1, 2026-10-16
+    commit: 956c699140b6fae58ba01ec02b17d1cc3a146c95 # sethrj-bot celeritas-gcc13
   builtin:
     commit: 40e476f10a712de643817d1cb2ba7ffaefd3231d # pandora updates
 
