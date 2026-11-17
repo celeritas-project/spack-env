@@ -3,64 +3,27 @@ spack:
   include:
     - include/excl.yaml
     - include/reqs-cuda.yaml
-    - include/reqs-scratch.yaml
     - include/reqs-celer.yaml
     - include/reqs-fnal-ci.yaml
     - include/prefs-hep-nogui.yaml
     - include/ext-ubunutu24.yaml
 
-  view: false
+  mirrors:
+    scratch:
+      url: /scratch/celeritas/buildcache
+      binary: true
+      signed: false
+      autopush: false
 
-  definitions:
-    - specs_art:
-        - art
-        - art-root-io
-        - canvas
-        - canvas-root-io
-        - cetlib
-        - cetlib-except
-        - cetmodules
-        - critic
-        - fhicl-cpp
-        - gallery
-        - hep-concurrency
-        - messagefacility
-    - specs_nu:
-        - dk2nudata
-        - dk2nugenie
-        - geant4
-        - nug4
-        - nurandom
-        - nusimdata
-        - nuevdb
-    - specs_lar:
-        - larana
-        - larcore
-        - larcorealg
-        - larcoreobj
-        - lardata
-        - lardataalg
-        - lardataobj
-          #- lareventdisplay
-        - larevt
-        - larexamples
-        - larg4
-          #- larrecodnn
-        - larsim
-    - specs_dune:
-        #- duneana
-        #- duneanaobj
-        #- dunecalib
-        - dunecore
-        #- dunedataprep
-        #- duneexamples
-        - duneopdet
-        #- dunepdlegacy
-        #- duneprototypes
-        #- dunereco
-        - dunesim
-        #- protoduneana
-        #- dunesw
+  view:
+    default:
+      root: /auto/projects/celeritas/dunesw/view-cuda
+
+  config:
+    install_tree:
+      root:
+        /auto/projects/celeritas/dunesw/opt
+        #root: /scratch/celeritas/opt/
 
   specs:
     - $specs_celer_dev
@@ -69,44 +32,4 @@ spack:
     #- $specs_nu
     - $specs_lar
     - $specs_dune
-
-  packages:
-    artdaq-core:
-      require:
-        # Do NOT "use the art-suite bundle to fix dependency versions"
-        - "~bundle"
-    boost:
-      variants::
-        # Primarily art, canvas, fhicl-cpp, artdaq-db
-        - >-
-          +date_time +graph +program_options +regex
-          +filesystem +system +test
-          +chrono +math +thread
-          +atomic +exception +json +random +serialization
-    duneopdet:
-      require:
-        - ~tensorflow
-    larpandoracontent:
-      require:
-        # Disable ROOT x11 usage
-        - ~monitoring
-        # Disable PyTorch
-        - ~torch
-    larsimdnn:
-      require:
-        - ~tensorflow
-    larpandora:
-      require:
-        # Do not pull in pytorch
-        - ~torch
-    # root:
-    #   require:
-    #     - ~x ~opengl
-    xrootd:
-      require:
-        - generator=make # weird python jobserver bug
-    zlib:
-      buildable: False
-    zlib-ng:
-      require:
-        - +compat+new_strategies
+    - cuda

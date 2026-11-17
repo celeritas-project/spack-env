@@ -36,7 +36,72 @@ repos:
   builtin:
     commit: 40e476f10a712de643817d1cb2ba7ffaefd3231d # pandora updates
 
+definitions:
+  - specs_art:
+      - art
+      - art-root-io
+      - canvas
+      - canvas-root-io
+      - cetlib
+      - cetlib-except
+      - cetmodules
+      - critic
+      - fhicl-cpp
+      - gallery
+      - hep-concurrency
+      - messagefacility
+  - specs_nu:
+      - dk2nudata
+      - dk2nugenie
+      - geant4
+      - nug4
+      - nurandom
+      - nusimdata
+      - nuevdb
+  - specs_lar:
+      - larana
+      - larcore
+      - larcorealg
+      - larcoreobj
+      - lardata
+      - lardataalg
+      - lardataobj
+        #- lareventdisplay
+      - larevt
+      - larexamples
+      - larg4
+        #- larrecodnn
+      - larsim
+  - specs_dune:
+      #- duneana
+      #- duneanaobj
+      #- dunecalib
+      - dunecore
+      #- dunedataprep
+      #- duneexamples
+      - duneopdet
+      #- dunepdlegacy
+      #- duneprototypes
+      #- dunereco
+      - dunesim
+      #- protoduneana
+      #- dunesw
+
 packages:
+  boost:
+    variants::
+      # Primarily art, canvas, fhicl-cpp, artdaq-db
+      - >-
+        +date_time +graph +program_options +regex
+        +filesystem +system +test
+        +chrono +math +thread
+        +atomic +exception +json +random +serialization
+  zlib:
+    buildable: False
+  zlib-ng:
+    require:
+      - +compat+new_strategies
+
   # From dunesw-10_31_00d00-justin-01_06_05-prototype
   # all: # spack.yaml:68
   #   variants: # spack.yaml:74
@@ -69,6 +134,7 @@ packages:
   duneopdet: # dune-release-configs:28
     require: # dune-release-configs:29
       - "@10.31.00d00" # dune-release-configs:30
+      - ~tensorflow
   dunepdlegacy: # dune-release-configs:31
     require: # dune-release-configs:32
       - "@1.01.05" # dune-release-configs:33
@@ -140,6 +206,7 @@ packages:
     require: # dune-release-configs:98
       - +python # dune-release-configs:99
       - +client_only # otherwise cxxstd is ignored
+      - generator=make # weird python jobserver bug
   larana: # larsoft-release-configs:2
     require: # larsoft-release-configs:3
       - "@10.05.00" # larsoft-release-configs:4
@@ -176,9 +243,15 @@ packages:
   larpandora: # larsoft-release-configs:35
     require: # larsoft-release-configs:36
       - "@10.09.00" # larsoft-release-configs:37
+      # Do not pull in pytorch
+      - ~torch
   larpandoracontent: # larsoft-release-configs:38
     require: # larsoft-release-configs:39
       - "@05.09.00" # larsoft-release-configs:40
+      # Disable ROOT x11 usage
+      - ~monitoring
+      # Disable PyTorch
+      - ~torch
   larreco: # larsoft-release-configs:41
     require: # larsoft-release-configs:42
       - "@10.08.00" # larsoft-release-configs:43
@@ -191,6 +264,7 @@ packages:
   larsimdnn: # larsoft-release-configs:50
     require: # larsoft-release-configs:51
       - "@10.02.14" # larsoft-release-configs:52
+      - ~tensorflow
   larsimrad: # larsoft-release-configs:53
     require: # larsoft-release-configs:54
       - "@10.01.15" # larsoft-release-configs:55
