@@ -1,0 +1,421 @@
+config:
+  deprecated: true
+
+# NOTE: use `spack repo update` to check out these versions
+repos:
+  fnal_art:
+    git: https://github.com/sethrj-bot/fnal_art.git
+    commit: f84a93937b35b943003d95241f886ce206454432 # sethrj-bot celeritas-gcc13
+    paths: [spack_repo/fnal_art]
+    destination: /auto/projects/celeritas/repos/fnal_art
+  nusofthep:
+    git: https://github.com/sethrj-bot/nusofthep-spack-recipes.git
+    commit: ecbe95395ed1f0a2bfe889d60aa5cd4fd2ddeee0 # sethrj-bot celeritas-gcc13
+    paths: [spack_repo/nusofthep]
+    destination: /auto/projects/celeritas/repos/nusofthep
+  larsoft:
+    git: https://github.com/sethrj-bot/larsoft-spack-recipes.git
+    # commit: a4f00473ab28f1389cf0269e972fc219c74098e8 # upstream/main, 2026-11-13
+    commit: 8666b084975b2257de69fad9208f1ff23f690a99 # sethrj-bot celeritas-gcc13
+    paths: [spack_repo/larsoft]
+    destination: /auto/projects/celeritas/repos/larsoft
+  wirecell:
+    git: https://github.com/sethrj-bot/wire-cell-spack.git
+    commit: a300e0cb08af4ac72500a7f17ef5aee25503e9d6 # sethrj-bot celeritas-gcc13
+    paths: [spack_repo/wirecell]
+    destination: /auto/projects/celeritas/repos/wirecell
+  dune_spack:
+    git: https://github.com/sethrj-bot/dune_spack.git
+    commit: df201a2cd5f8185dd40875e4e701cfbb2e0dfb39 # sethrj-bot celeritas-gcc13
+    paths: [spack_repo/dune_spack]
+    destination: /auto/projects/celeritas/repos/dune-spack
+  artdaq_spack:
+    git: https://github.com/sethrj-bot/artdaq-spack.git
+    destination: /auto/projects/celeritas/repos/artdaq-spack
+    commit: 956c699140b6fae58ba01ec02b17d1cc3a146c95 # sethrj-bot celeritas-gcc13
+  builtin:
+    commit: 40e476f10a712de643817d1cb2ba7ffaefd3231d # pandora updates
+
+definitions:
+  - specs_art:
+      - art
+      - art-root-io
+      - canvas
+      - canvas-root-io
+      - cetlib
+      - cetlib-except
+      - cetmodules
+      - critic
+      - fhicl-cpp
+      - gallery
+      - hep-concurrency
+      - messagefacility
+  - specs_nu:
+      - dk2nudata
+      - dk2nugenie
+      - geant4
+      - nug4
+      - nurandom
+      - nusimdata
+      - nuevdb
+  - specs_lar:
+      - larana
+      - larcore
+      - larcorealg
+      - larcoreobj
+      - lardata
+      - lardataalg
+      - lardataobj
+        #- lareventdisplay
+      - larevt
+      - larexamples
+      - larg4
+        #- larrecodnn
+      - larsim
+  - specs_dune:
+      #- duneana
+      #- duneanaobj
+      #- dunecalib
+      - dunecore
+      #- dunedataprep
+      #- duneexamples
+      - duneopdet
+      #- dunepdlegacy
+      #- duneprototypes
+      #- dunereco
+      - dunesim
+      #- protoduneana
+      #- dunesw
+
+packages:
+  boost:
+    variants::
+      # Primarily art, canvas, fhicl-cpp, artdaq-db
+      - >-
+        +date_time +graph +program_options +regex
+        +filesystem +system +test
+        +chrono +math +thread
+        +atomic +exception +json +random +serialization
+  zlib:
+    buildable: False
+  zlib-ng:
+    require:
+      - +compat+new_strategies
+
+  # From dunesw-10_31_00d00-justin-01_06_05-prototype
+  # all: # spack.yaml:68
+  #   variants: # spack.yaml:74
+  #     - generator=ninja # spack.yaml:75
+  #     - build_type=Release # spack.yaml:76
+  duneana: # dune-release-configs:4
+    require: # dune-release-configs:5
+      - "@10.31.00d00" # dune-release-configs:6
+  duneanaobj: # dune-release-configs:7
+    require: # dune-release-configs:8
+      - "@03.16.00" # dune-release-configs:9
+  dunecalib: # dune-release-configs:10
+    require: # dune-release-configs:11
+      - "@10.31.00d00" # dune-release-configs:12
+  dunecore: # dune-release-configs:13
+    require: # dune-release-configs:14
+      - "@10.31.00d00" # dune-release-configs:15
+  dunedaqdataformats: # dune-release-configs:16
+    require: # dune-release-configs:17
+      - "@4.4.5" # dune-release-configs:18
+  dunedataprep: # dune-release-configs:19
+    require: # dune-release-configs:20
+      - "@10.31.00d00" # dune-release-configs:21
+  dunedetdataformats: # dune-release-configs:22
+    require: # dune-release-configs:23
+      - "@4.4.6" # dune-release-configs:24
+  duneexamples: # dune-release-configs:25
+    require: # dune-release-configs:26
+      - "@10.31.00d00" # dune-release-configs:27
+  duneopdet: # dune-release-configs:28
+    require: # dune-release-configs:29
+      - "@10.31.00d00" # dune-release-configs:30
+      - ~tensorflow
+  dunepdlegacy: # dune-release-configs:31
+    require: # dune-release-configs:32
+      - "@1.01.05" # dune-release-configs:33
+  duneprototypes: # dune-release-configs:34
+    require: # dune-release-configs:35
+      - "@10.31.00d00" # dune-release-configs:36
+  dunereco: # dune-release-configs:37
+    require: # dune-release-configs:38
+      - "@10.31.00d00" # dune-release-configs:39
+  dunesim: # dune-release-configs:40
+    require: # dune-release-configs:41
+      - "@10.31.00d00" # dune-release-configs:42
+  dunesw: # dune-release-configs:43
+    require: # dune-release-configs:44
+      - "@10.31.00d00" # dune-release-configs:45
+  duneutil: # dune-release-configs:46
+    require: # dune-release-configs:47
+      - "@10.31.00d00" # dune-release-configs:48
+  protoduneana: # dune-release-configs:49
+    require: # dune-release-configs:50
+      - "@10.31.00d00" # dune-release-configs:51
+  justin: # dune-release-configs:52
+    require: # dune-release-configs:53
+      - "@01.06.05" # dune-release-configs:54
+  #cuda: # dune-release-configs:57
+  #  require: # dune-release-configs:58
+  #    - "@12.6" # dune-release-configs:59
+  geant4: # dune-release-configs:60
+    require: # dune-release-configs:61
+      - "@11.2.2" # dune-release-configs:62
+      #- build_type=RelWithDebInfo # dune-release-configs:63
+      - generator=ninja # dune-release-configs:64
+      - ~qt # nusofthep-release-configs:12
+  geant4reweight: # dune-release-configs:66
+    require: # dune-release-configs:67
+      - "@01.21" # dune-release-configs:68
+  #grpc: # dune-release-configs:69
+  #  require: # dune-release-configs:70
+  #    - build_type=RelWithDebInfo # dune-release-configs:71
+  #    - generator=ninja # dune-release-configs:72
+  #    - "@:1.50.0" # larsoft-release-configs:89
+  nusystematics: # dune-release-configs:74
+    require: # dune-release-configs:75
+      - "@1.05.07" # dune-release-configs:76
+  #py-tensorflow: # dune-release-configs:77
+  #  require: # dune-release-configs:78
+  #    - +cuda # dune-release-configs:79
+  #    - cuda_arch=80 # dune-release-configs:80
+  #    - "@2.17" # nusofthep-release-configs:36
+  #py-torch: # dune-release-configs:81
+  #  require: # dune-release-configs:82
+  #    - +cuda # dune-release-configs:83
+  #    - cuda_arch=80 # dune-release-configs:84
+  #    - "@2.7:" # nusofthep-release-configs:33
+  r-m-dd-config: # dune-release-configs:85
+    require: # dune-release-configs:86
+      - experiment=dune # dune-release-configs:87
+  root: # dune-release-configs:88
+    require: # dune-release-configs:89
+      #- +xrootd # dune-release-configs:90
+      - "@6.28.12" # art-release-configs:60
+  snakemake: # dune-release-configs:91
+    require:
+      - "@7:" # dune-release-configs:93
+  systematicstools: # dune-release-configs:94
+    require: # dune-release-configs:95
+      - "@01.04.04" # dune-release-configs:96
+  xrootd: # dune-release-configs:97
+    require: # dune-release-configs:98
+      - +python # dune-release-configs:99
+      - +client_only # otherwise cxxstd is ignored
+      - generator=make # weird python jobserver bug
+  larana: # larsoft-release-configs:2
+    require: # larsoft-release-configs:3
+      - "@10.05.00" # larsoft-release-configs:4
+  larcore: # larsoft-release-configs:5
+    require: # larsoft-release-configs:6
+      - "@10.00.07" # larsoft-release-configs:7
+  larcorealg: # larsoft-release-configs:8
+    require: # larsoft-release-configs:9
+      - "@10.00.06" # larsoft-release-configs:10
+  larcoreobj: # larsoft-release-configs:11
+    require: # larsoft-release-configs:12
+      - "@10.00.03" # larsoft-release-configs:13
+  lardata: # larsoft-release-configs:14
+    require: # larsoft-release-configs:15
+      - "@10.02.01" # larsoft-release-configs:16
+  lardataalg: # larsoft-release-configs:17
+    require: # larsoft-release-configs:18
+      - "@10.03.01" # larsoft-release-configs:19
+  lardataobj: # larsoft-release-configs:20
+    require: # larsoft-release-configs:21
+      - "@10.06.00" # larsoft-release-configs:22
+  lareventdisplay: # larsoft-release-configs:23
+    require: # larsoft-release-configs:24
+      - "@10.01.16" # larsoft-release-configs:25
+  larevt: # larsoft-release-configs:26
+    require: # larsoft-release-configs:27
+      - "@10.00.26" # larsoft-release-configs:28
+  larexamples: # larsoft-release-configs:29
+    require: # larsoft-release-configs:30
+      - "@10.02.11" # larsoft-release-configs:31
+  larg4: # larsoft-release-configs:32
+    require: # larsoft-release-configs:33
+      - "@10.20.10" # larsoft-release-configs:34
+  larpandora: # larsoft-release-configs:35
+    require: # larsoft-release-configs:36
+      - "@10.09.00" # larsoft-release-configs:37
+      # Do not pull in pytorch
+      - ~torch
+  larpandoracontent: # larsoft-release-configs:38
+    require: # larsoft-release-configs:39
+      - "@05.09.00" # larsoft-release-configs:40
+      # Disable ROOT x11 usage
+      - ~monitoring
+      # Disable PyTorch
+      - ~torch
+  larreco: # larsoft-release-configs:41
+    require: # larsoft-release-configs:42
+      - "@10.08.00" # larsoft-release-configs:43
+  larrecodnn: # larsoft-release-configs:44
+    require: # larsoft-release-configs:45
+      - "@10.05.08" # larsoft-release-configs:46
+  larsim: # larsoft-release-configs:47
+    require: # larsoft-release-configs:48
+      - "@10.24.01" # larsoft-release-configs:49
+  larsimdnn: # larsoft-release-configs:50
+    require: # larsoft-release-configs:51
+      - "@10.02.14" # larsoft-release-configs:52
+      - ~tensorflow
+  larsimrad: # larsoft-release-configs:53
+    require: # larsoft-release-configs:54
+      - "@10.01.15" # larsoft-release-configs:55
+  larsoft: # larsoft-release-configs:56
+    require: # larsoft-release-configs:57
+      - "@10.31.00" # larsoft-release-configs:58
+  larwirecell: # larsoft-release-configs:59
+    require: # larsoft-release-configs:60
+      - "@10.04.08" # larsoft-release-configs:61
+  larvecutils: # larsoft-release-configs:62
+    require: # larsoft-release-configs:63
+      - "@09.04.04" # larsoft-release-configs:64
+  larfinder: # larsoft-release-configs:65
+    require: # larsoft-release-configs:66
+      - "@09.00.06" # larsoft-release-configs:67
+  pandorapfa: # larsoft-release-configs:69
+    require: # larsoft-release-configs:70
+      - "@5.9.0" # larsoft-release-configs:71
+  pandorasdk: # larsoft-release-configs:72
+    require: # larsoft-release-configs:73
+      - "@5.2.0" # larsoft-release-configs:74
+  pandoramonitoring: # larsoft-release-configs:75
+    require: # larsoft-release-configs:76
+      - "@5.2.0" # larsoft-release-configs:77
+  artg4tk: # larsoft-release-configs:78
+    require: # larsoft-release-configs:79
+      - "@13.0.1" # larsoft-release-configs:80
+  marley: # larsoft-release-configs:81
+    require: # larsoft-release-configs:82
+      - "@2.1.0" # larsoft-release-configs:83
+  wire-cell-toolkit: # larsoft-release-configs:84
+    require: # larsoft-release-configs:85
+      - "@0.37.1" # larsoft-release-configs:86
+  artdaq-core: # nusofthep-release-configs:2
+    require: # nusofthep-release-configs:3
+      - "@v3_11_01" # nusofthep-release-configs:4
+      - ~bundle # nusofthep-release-configs:5
+  cry: # nusofthep-release-configs:6
+    require: # nusofthep-release-configs:7
+      - "@1.7" # nusofthep-release-configs:8
+  nug4: # nusofthep-release-configs:16
+    require: # nusofthep-release-configs:17
+      - "@1.17.04" # nusofthep-release-configs:18
+  nugen: # nusofthep-release-configs:19
+    require: # nusofthep-release-configs:20
+      - "@1.23.06" # nusofthep-release-configs:21
+  nurandom: # nusofthep-release-configs:22
+    require: # nusofthep-release-configs:23
+      - "@1.11.06" # nusofthep-release-configs:24
+  nusimdata: # nusofthep-release-configs:25
+    require: # nusofthep-release-configs:26
+      - "@1.29.04" # nusofthep-release-configs:27
+  nutools: # nusofthep-release-configs:28
+    require: # nusofthep-release-configs:29
+      - "@3.22.02" # nusofthep-release-configs:30
+  nufinder: # nusofthep-release-configs:37
+    require: # nusofthep-release-configs:38
+      - "@1.03.01" # nusofthep-release-configs:39
+  art: # art-release-configs:2
+    require: # art-release-configs:3
+      - "@3.14.04" # art-release-configs:4
+  art-root-io: # art-release-configs:5
+    require: # art-release-configs:6
+      - "@1.13.06" # art-release-configs:7
+  canvas: # art-release-configs:8
+    require: # art-release-configs:9
+      - "@3.16.04" # art-release-configs:10
+  canvas-root-io: # art-release-configs:11
+    require: # art-release-configs:12
+      - "@1.13.06" # art-release-configs:13
+  cetlib: # art-release-configs:14
+    require: # art-release-configs:15
+      - "@3.18.02" # art-release-configs:16
+  cetlib-except: # art-release-configs:17
+    require: # art-release-configs:18
+      - "@1.09.01" # art-release-configs:19
+  cetmodules: # art-release-configs:20
+    require: # art-release-configs:21
+      - "@3" # art-release-configs:22
+  critic: # art-release-configs:23
+    require: # art-release-configs:24
+      - "@2.13.06" # art-release-configs:25
+  messagefacility: # art-release-configs:26
+    require: # art-release-configs:27
+      - "@2.10.05" # art-release-configs:28
+  fhicl-cpp: # art-release-configs:29
+    require: # art-release-configs:30
+      - "@4.18.04" # art-release-configs:31
+  gallery: # art-release-configs:32
+    require: # art-release-configs:33
+      - "@1.22.06" # art-release-configs:34
+  ifdh-art: # art-release-configs:35
+    require: # art-release-configs:36
+      - "@2.17.08" # art-release-configs:37
+  hep-concurrency: # art-release-configs:38
+    require: # art-release-configs:39
+      - "@1.09.02" # art-release-configs:40
+  clhep: # art-release-configs:43
+    require: # art-release-configs:44
+      - "@2.4.7.1" # art-release-configs:45
+  ifbeam: # art-release-configs:46
+    require: # art-release-configs:47
+      - "@2.6.3" # art-release-configs:48
+  ifdhc: # art-release-configs:49
+    require: # art-release-configs:50
+      - "@2.8.0" # art-release-configs:51
+      #- "@2.8.0" # fife-release-configs:16
+  ifdhc-config: # art-release-configs:52
+    require: # art-release-configs:53
+      - "@2.8.0" # art-release-configs:54
+      #- "@2.8.0" # fife-release-configs:20
+  nucondb: # art-release-configs:55
+    require: # art-release-configs:56
+      - "@2.6.3" # art-release-configs:57
+  #tbb: # art-release-configs:61
+  #  require: # art-release-configs:62
+  #    - builtin.intel-oneapi-tbb # art-release-configs:63
+  #awscli: # fife-release-configs:2
+  #  require: # fife-release-configs:3
+  #    - "@1.29.41" # fife-release-configs:4
+  data-dispatcher: # fife-release-configs:5
+    require: # fife-release-configs:6
+      - "@2.0.3" # fife-release-configs:7
+  #fife-utils: # fife-release-configs:8
+  #  require: # fife-release-configs:9
+  #    - "@3.7.7" # fife-release-configs:10
+  #hypotcode: # fife-release-configs:11
+  #  require: # fife-release-configs:12
+  #    - "@2.1" # fife-release-configs:13
+  #k5arc: # fife-release-configs:21
+  #  require: # fife-release-configs:22
+  #    - "@v1_4" # fife-release-configs:23
+  #metacat: # fife-release-configs:24
+  #  require: # fife-release-configs:25
+  #    - "@4.1.4" # fife-release-configs:26
+  #poms-client: # fife-release-configs:27
+  #  require: # fife-release-configs:28
+  #    - "@4.5.2" # fife-release-configs:29
+  #poms-jobsub-wrapper: # fife-release-configs:30
+  #  require: # fife-release-configs:31
+  #    - "@4.5.1" # fife-release-configs:32
+  #py-rucio-clients: # fife-release-configs:33
+  #  require: # fife-release-configs:34
+  #    - "@38.5.1" # fife-release-configs:35
+  #sam-web-client: # fife-release-configs:36
+  #  require: # fife-release-configs:37
+  #    - "@3.6" # fife-release-configs:38
+  #postgresql: # fife-release-configs:41
+  #  require: # fife-release-configs:42
+  #    - +gssapi # fife-release-configs:43
+  #gfal2: # fife-release-configs:44
+  #  require: # fife-release-configs:45
+  #    - "@2.23.0" # fife-release-configs:46
+  #    - +dcap+file+http+xrootd # fife-release-configs:47

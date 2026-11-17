@@ -1,0 +1,26 @@
+packages:
+  boost:
+    require:
+      - "+random"
+  cabana:
+    require:
+      - "+arborx"
+  hepmc3:
+    require:
+      - "+rootio +python"
+  root:
+    require:
+      - "+geom +math"
+
+definitions:
+  - specs_allpix:
+      - boost
+      - root
+      - eigen
+      - pkgconfig
+      - geant4
+      - hepmc3
+      - py-numpy
+      - hdf5
+      - py-h5py
+      - cabana
