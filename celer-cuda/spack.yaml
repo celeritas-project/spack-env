@@ -2,12 +2,13 @@ spack:
   include: # Earlier is higher precedence
     - include/excl.yaml
     - include/reqs-cuda.yaml
-    - include/reqs-scratch.yaml
     - include/reqs-celer.yaml
     - include/prefs-hep-nogui.yaml
     - include/ext-ubunutu24.yaml
 
-  view: false
+  view:
+    default:
+      root: /auto/projects/celeritas/view/cuda
 
   specs:
     - $specs_celer_dev

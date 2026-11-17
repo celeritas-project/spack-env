@@ -8,20 +8,9 @@ spack:
     - include/prefs-hep-nogui.yaml
     - include/ext-ubunutu24.yaml
 
-  mirrors:
-    scratch:
-      url: /scratch/celeritas/buildcache
-      binary: true
-      signed: false
-      autopush: false
-
   view:
     default:
-      root: /auto/projects/celeritas/dunesw/view
-
-  config:
-    install_tree:
-      root: /auto/projects/celeritas/dunesw/opt
+      root: /auto/projects/celeritas/view/dunesw-nodevice
 
   specs:
     - $specs_celer_dev

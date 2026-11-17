@@ -2,15 +2,20 @@ config:
   locks: false
   concurrent_packages: 16
   build_jobs: 64
-  source_cache: /auto/projects/celeritas/spack-cache/source
+  source_cache: /auto/projects/celeritas/cache/spack-source
   install_tree:
     padded_length: 128
     projections:
       all: "{name}/{version}/{hash:7}"
 
 mirrors:
+  scratch: # on secretariat
+    url: /scratch/celeritas/buildcache
+    binary: true
+    signed: false
+    autopush: false
   projects:
-    url: /auto/projects/celeritas/spack-cache/build
+    url: /auto/projects/celeritas/cache/spack-binary
     binary: true
     signed: false
     autopush: false

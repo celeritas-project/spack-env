@@ -7,31 +7,31 @@ repos:
     git: https://github.com/sethrj-bot/fnal_art.git
     commit: f84a93937b35b943003d95241f886ce206454432 # sethrj-bot celeritas-gcc13
     paths: [spack_repo/fnal_art]
-    destination: /auto/projects/celeritas/spack-repos/fnal_art
+    destination: /auto/projects/celeritas/repos/fnal_art
   nusofthep:
     git: https://github.com/sethrj-bot/nusofthep-spack-recipes.git
     commit: ecbe95395ed1f0a2bfe889d60aa5cd4fd2ddeee0 # sethrj-bot celeritas-gcc13
     paths: [spack_repo/nusofthep]
-    destination: /auto/projects/celeritas/spack-repos/nusofthep
+    destination: /auto/projects/celeritas/repos/nusofthep
   larsoft:
     git: https://github.com/sethrj-bot/larsoft-spack-recipes.git
     # commit: a4f00473ab28f1389cf0269e972fc219c74098e8 # upstream/main, 2026-11-13
     commit: 8666b084975b2257de69fad9208f1ff23f690a99 # sethrj-bot celeritas-gcc13
     paths: [spack_repo/larsoft]
-    destination: /auto/projects/celeritas/spack-repos/larsoft
+    destination: /auto/projects/celeritas/repos/larsoft
   wirecell:
     git: https://github.com/sethrj-bot/wire-cell-spack.git
     commit: a300e0cb08af4ac72500a7f17ef5aee25503e9d6 # sethrj-bot celeritas-gcc13
     paths: [spack_repo/wirecell]
-    destination: /auto/projects/celeritas/spack-repos/wirecell
+    destination: /auto/projects/celeritas/repos/wirecell
   dune_spack:
     git: https://github.com/sethrj-bot/dune_spack.git
     commit: df201a2cd5f8185dd40875e4e701cfbb2e0dfb39 # sethrj-bot celeritas-gcc13
     paths: [spack_repo/dune_spack]
-    destination: /auto/projects/celeritas/spack-repos/dune-spack
+    destination: /auto/projects/celeritas/repos/dune-spack
   artdaq_spack:
     git: https://github.com/sethrj-bot/artdaq-spack.git
-    destination: /auto/projects/celeritas/spack-repos/artdaq-spack
+    destination: /auto/projects/celeritas/repos/artdaq-spack
     commit: 956c699140b6fae58ba01ec02b17d1cc3a146c95 # sethrj-bot celeritas-gcc13
   builtin:
     commit: 40e476f10a712de643817d1cb2ba7ffaefd3231d # pandora updates

@@ -8,33 +8,33 @@ repos:
     git: https://github.com/sethrj/fnal_art.git
     commit: fa9235930064c70c03c1c6dc880766fcfa913f31 # branch celeritas 12 nov 2026
     paths: [spack_repo/fnal_art]
-    destination: /auto/projects/celeritas/spack-repos/fnal_art
+    destination: /auto/projects/celeritas/repos/fnal_art
   nusofthep:
     # brettviren fork: dk2nugenie LIBXML2_FQ_DIR fix (see multispack envs/larsoft).
     git: https://github.com/brettviren/nusofthep-spack-recipes.git
     commit: d0a27cf202e4b2691459140bbbc233b479a85690 # branch fix-libxml2-in-spack, as built 2026-10-02
     paths: [spack_repo/nusofthep]
-    destination: /auto/projects/celeritas/spack-repos/nusofthep
+    destination: /auto/projects/celeritas/repos/nusofthep
   larsoft:
     #git: https://github.com/LArSoft/larsoft-spack-recipes.git
     #commit: e18b1521c424c533a12dfcbc63c70b7189902561 # branch main, as built 2026-10-02
     git: https://github.com/sethrj/larsoft-spack-recipes.git
     commit: 22420a612b2e1f4416a009e94a5ea4bae5acfb2f # branch celeritas 12 nov 2026
     paths: [spack_repo/larsoft]
-    destination: /auto/projects/celeritas/spack-repos/larsoft
+    destination: /auto/projects/celeritas/repos/larsoft
   wirecell:
     git: https://github.com/WireCell/wire-cell-spack.git
     commit: 24153eb2cbcb116accb5fb81583ee297f9bd0701 # branch master, as built 2026-10-02
     paths: [spack_repo/wirecell]
-    destination: /auto/projects/celeritas/spack-repos/wirecell
+    destination: /auto/projects/celeritas/repos/wirecell
   dune_spack:
     git: https://github.com/DUNE/dune_spack.git
     commit: a561dcf06805e51563f6f37b6d0d49e1501ce39b # branch spack-v1.0, 11.11
     paths: [spack_repo/dune_spack]
-    destination: /auto/projects/celeritas/spack-repos/dune-spack
+    destination: /auto/projects/celeritas/repos/dune-spack
   artdaq_spack:
     git: https://github.com/art-daq/artdaq-spack.git
-    destination: /auto/projects/celeritas/spack-repos/artdaq-spack
+    destination: /auto/projects/celeritas/repos/artdaq-spack
     branch: artdaq/Spack1.1
 
 # in dunesw v1.2.2 nov 14
