@@ -1,0 +1,21 @@
+# Based on https://github.com/brettviren/phaindia
+spack:
+  include:
+    - include/excl.yaml
+    - include/reqs-fnal-ci.yaml
+    - include/reqs-nodevice.yaml
+    - include/reqs-celer.yaml
+    - include/prefs-hep-nogui.yaml
+    - include/ext-ubunutu24.yaml
+
+  view:
+    default:
+      root: /auto/projects/celeritas/view/dunesw-nodevice
+
+  specs:
+    - $specs_celer_dev
+    - $specs_celer_lib
+    - $specs_art
+    #- $specs_nu
+    - $specs_lar
+    - $specs_dune

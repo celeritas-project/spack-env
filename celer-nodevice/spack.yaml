@@ -1,0 +1,16 @@
+spack:
+  include: # Earlier is higher precedence
+    - include/excl.yaml
+    - include/reqs-nodevice.yaml
+    - include/reqs-celer.yaml
+    - include/prefs-hep-nogui.yaml
+    - include/ext-ubunutu24.yaml
+
+  view:
+    default:
+      root: /auto/projects/celeritas/view/nodevice
+
+  specs:
+    - $specs_celer_dev
+    - $specs_celer_lib
+    - $specs_excl_util
