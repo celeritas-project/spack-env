@@ -72,7 +72,7 @@ definitions:
       - larg4
         #- larrecodnn
       - larsim
-  - specs_dune:
+  - specs_dune_sim:
       #- duneana
       #- duneanaobj
       #- dunecalib
@@ -144,6 +144,7 @@ packages:
   dunereco: # dune-release-configs:37
     require: # dune-release-configs:38
       - "@10.31.00d00" # dune-release-configs:39
+      - ~tensorflow
   dunesim: # dune-release-configs:40
     require: # dune-release-configs:41
       - "@10.31.00d00" # dune-release-configs:42

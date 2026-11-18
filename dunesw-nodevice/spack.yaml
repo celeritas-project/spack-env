@@ -17,4 +17,4 @@ spack:
     - $specs_art
     #- $specs_nu
     - $specs_lar
-    - $specs_dune
+    - $specs_dune_sim
