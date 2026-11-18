@@ -33,6 +33,12 @@ repos:
     git: https://github.com/sethrj-bot/artdaq-spack.git
     destination: /auto/projects/celeritas/repos/artdaq-spack
     commit: 956c699140b6fae58ba01ec02b17d1cc3a146c95 # sethrj-bot celeritas-gcc13
+  # fcl-only stubs for dunesw/dunerec/dunedataprep (no reco dependency chain)
+  dunesw_stubs:
+    git: https://github.com/sethrj-bot/dunesw-stubs.git
+    commit: eee7ddab9efb7c71d049b704f013ece89f643648 # sethrj-bot main
+    paths: [spack_repo/dunesw_stubs]
+    destination: /auto/projects/celeritas/repos/dunesw-stubs
   builtin:
     commit: 40e476f10a712de643817d1cb2ba7ffaefd3231d # pandora updates
 
@@ -83,9 +89,11 @@ definitions:
       #- dunepdlegacy
       #- duneprototypes
       #- dunereco
+      - dunereco-stub
+      - dunedataprep-stub
       - dunesim
       #- protoduneana
-      #- dunesw
+      - dunesw-stub
 
 packages:
   boost:
