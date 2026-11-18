@@ -2,23 +2,23 @@
 #-----------------------------------------------------------------------------#
 # Rewrite CVMFS paths in the DUNESW view's FHiCL files for systems without CVMFS.
 #
-# Every *.fcl in $DUNESW_VIEW/fcl that mentions "cvmfs" is copied (symlinks are
+# Every *.fcl in $SPACK_ENV_VIEW/fcl that mentions "cvmfs" is copied (symlinks are
 # followed) to the output directory with the CVMFS prefix replaced by the local
 # mirror. Files without "cvmfs" are not copied, so the output directory should
 # be placed *before* the view on FHICL_FILE_PATH:
 #
-#   export FHICL_FILE_PATH=${OUT_DIR}:$DUNESW_VIEW/job:$DUNESW_VIEW/fcl
+#   export FHICL_FILE_PATH=${OUT_DIR}:$SPACK_ENV_VIEW/job:$SPACK_ENV_VIEW/fcl
 #
 # Usage: filter-cvmfs-fcl.sh [OUT_DIR]
-# Environment: DUNESW_VIEW (required), CVMFS_PREFIX and MIRROR_PREFIX (optional)
+# Environment: SPACK_ENV_VIEW (required), CVMFS_PREFIX and MIRROR_PREFIX (optional)
 #-----------------------------------------------------------------------------#
 
 CVMFS_PREFIX=${CVMFS_PREFIX:-/cvmfs/dune.osgstorage.org/pnfs/fnal.gov/usr/dune}
 MIRROR_PREFIX=${MIRROR_PREFIX:-/auto/projects/celeritas/data/dunesw}
 OUT_DIR=${1:-${MIRROR_PREFIX}/fcl}
 
-if [ -z "${DUNESW_VIEW}" ] || ! [ -d "${DUNESW_VIEW}/fcl" ]; then
-  echo "error: DUNESW_VIEW must point to a view containing fcl/" >&2
+if [ -z "${SPACK_ENV_VIEW}" ] || ! [ -d "${SPACK_ENV_VIEW}/fcl" ]; then
+  echo "error: SPACK_ENV_VIEW must point to a view containing fcl/" >&2
   exit 1
 fi
 
@@ -27,7 +27,7 @@ mkdir -p "${OUT_DIR}"
 count=0
 # -l: names only; -s: ignore unreadable files; -R: follow the
 # symlinks the spack view uses
-for src in $(grep -lsR --include='*.fcl' -e cvmfs "${DUNESW_VIEW}/fcl" \
+for src in $(grep -lsR --include='*.fcl' -e cvmfs "${SPACK_ENV_VIEW}/fcl" \
              | sort); do
   name=$(basename "${src}")
   # Escape sed metacharacters in the prefixes (delimiter is |)
