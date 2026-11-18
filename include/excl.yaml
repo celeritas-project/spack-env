@@ -79,6 +79,26 @@ packages:
     require:
       - "@12.9"
 
+  # AMD ROCm HIP compilers/runtime
+  hip:
+    require:
+      - "@7.2"
+  llvm-amdgpu:
+    require:
+      - "@7.2"
+  hsa-rocr-dev:
+    require:
+      - "@7.2"
+  comgr:
+    require:
+      - "@7.2"
+  rocm-device-libs:
+    require:
+      - "@7.2"
+  rocm-core:
+    require:
+      - "@7.2"
+
   hdf5:
     prefer:
       - ~cxx # override cxxstd preference

@@ -1,0 +1,16 @@
+packages:
+  all:
+    variants:
+      - ~cuda
+  arborx:
+    require:
+      - +rocm amdgpu_target=gfx90a,gfx942
+  cabana:
+    require:
+      - +rocm amdgpu_target=gfx90a,gfx942
+  covfie:
+    require:
+      - +rocm amdgpu_target=gfx90a,gfx942
+  vecgeom:
+    require:
+      - ~cuda
