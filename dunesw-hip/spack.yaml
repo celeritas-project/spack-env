@@ -18,4 +18,4 @@ spack:
     #- $specs_nu
     - $specs_lar
     - $specs_dune_sim
-    - hip
+    - $specs_celer_hip

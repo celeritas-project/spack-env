@@ -56,3 +56,8 @@ definitions:
       - hepmc3
       - vecgeom
       - root
+  - specs_celer_hip:
+      - hip+rocm
+      - hiprand+rocm
+      - hipcub+rocm
+      - rocthrust
